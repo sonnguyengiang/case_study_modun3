@@ -1,1 +1,0 @@
-SELECT * FROM case_study.account;
