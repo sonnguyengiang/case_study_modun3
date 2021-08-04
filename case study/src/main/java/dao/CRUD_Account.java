@@ -31,7 +31,7 @@ public class CRUD_Account {
     }
 
     public static ArrayList<Account> login(String user) throws SQLException {
-        String take_data_login = "select * from account where username like '%" + user + "%'";
+        String take_data_login = "select * from account where username like '"+ user + "'";
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(take_data_login);
@@ -45,8 +45,8 @@ public class CRUD_Account {
             String gmail = resultSet.getString("gmail");
             String address = resultSet.getString("address");
             String type = resultSet.getString("type");
-            Account account = new Account(id, username, password, gmail, phoneNumber, address, type);
 
+            Account account = new Account(id, username, password, gmail, phoneNumber, address, type);
             list.add(account);
         }
         return list;
@@ -75,8 +75,27 @@ public class CRUD_Account {
         preparedStatement.setInt(6, id);
         preparedStatement.execute();
     }
-    public static void find(){
 
+    public static ArrayList<Account> find(String user) throws SQLException {
+        String find = "select * from account where username like '%" + user + "%'";
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(find);
+        ArrayList<Account> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id_account");
+            String username = resultSet.getString("username");
+            String password = resultSet.getString("password");
+            String phoneNumber = resultSet.getString("phonenumber");
+            String gmail = resultSet.getString("gmail");
+            String address = resultSet.getString("address");
+            String type = resultSet.getString("type");
+            Account account = new Account(id, username, password, gmail, phoneNumber, address, type);
+
+            list.add(account);
+        }
+        return list;
     }
 }
 
