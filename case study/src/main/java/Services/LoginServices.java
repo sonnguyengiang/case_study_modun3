@@ -30,30 +30,28 @@ public class AccountServices {
     }
 
     public String login(String username, String password) {
-        String check = "null";
         try {
             list = CRUD_Account.login(username);
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
         if (!list.get(0).getUserName().equals(username)) {
-            check = "False";
-            return check;
-        } else if (list.get(0).getUserName() == null) {
-            return check;
+            return "False";
         } else {
-            if (list.get(0).getUserName().equals(password)) {
-                if (list.get(0).getType() == "USER") {
-                    check = "UserLogin";
-                    return check;
-                } else {
-                    check = "AdminLogin";
-                    return check;
-                }
+            if (list.get(0).getUserName() != password) {
+                return "PasswordFalse";
             } else {
-                check = "UserFalse";
-                return check;
+                return checkUser();
             }
+        }
+    }
+
+    private String checkUser(){
+        String checkUser = "User";
+        if (list.get(0).getType().equals("ADMIN")){
+            return "Admin";
+        } else {
+            return checkUser;
         }
     }
 }
