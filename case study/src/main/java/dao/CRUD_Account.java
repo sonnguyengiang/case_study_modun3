@@ -48,6 +48,10 @@ public class CRUD_Account {
 
             Account account = new Account(id, username, password, gmail, phoneNumber, address, type);
             list.add(account);
+
+            System.out.println(user);
+            System.out.println(password);
+            System.out.println(type);
         }
         return list;
     }

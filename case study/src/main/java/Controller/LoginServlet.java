@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 import Services.LoginServices;
 import models.Account;
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        
+
         switch (action) {
             case "login":
                 String username = req.getParameter("username");

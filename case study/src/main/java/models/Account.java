@@ -22,6 +22,14 @@ public class Account {
         this.type = type;
     }
 
+    public Account(String userName, String password, String gmail, String phoneNumber, String address) {
+        this.userName = userName;
+        this.password = password;
+        this.gmail = gmail;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     public int getId() {
         return id;
     }
