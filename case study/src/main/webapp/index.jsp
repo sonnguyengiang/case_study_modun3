@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.account.Account" %>
+<%@ page import="dao.account.CRUD_Account" %>
+<%@ page import="javax.servlet.annotation.WebServlet" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 03/08/2021
@@ -6,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -63,6 +67,10 @@
                         <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
                     </div>
                 </form>
+                <%
+                    String username =  request.getParameter("username");
+                    ArrayList<Account> list = CRUD_Account.login(username);
+                %>
 
 <%--                sign up--%>
                 <form action="/login?action=create" method="post">
@@ -86,6 +94,7 @@
 </body>
 </html>
 <script>
+
     /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
 ---------------------------------------
 */
@@ -130,8 +139,6 @@
         },500);
 
     }
-
-
 
 
 </script>

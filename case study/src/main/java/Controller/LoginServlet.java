@@ -1,7 +1,7 @@
 package Controller;
 
-import Services.LoginServices;
-import models.Account;
+import Services.Login.LoginServices;
+import models.account.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,11 +34,12 @@ public class LoginServlet extends HttpServlet {
                 if (checkString == "user") {
                     resp.sendRedirect("views/login.jsp");
                 } else if (checkString == "admin") {
-                    resp.sendRedirect("views/adminlogin.jsp");
-                } else if (checkString == "null"){
+                    resp.sendRedirect("views/Admin/MainPageAdminjsp.jsp");
+                } else if (checkString == "null") {
                     resp.sendRedirect("views/null.jsp");
+
                 } else {
-                    resp.sendRedirect("false/null.jsp");
+                    resp.sendRedirect("views/null.jsp");
                 }
                 break;
 
@@ -48,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                 String gmail_create = req.getParameter("gmail");
                 String phonenumber_create = req.getParameter("phonenumber");
                 String address_create = req.getParameter("address");
-                Account account = new Account(username_create, password_create, gmail_create, password_create, address_create);
+                Account account = new Account(username_create, password_create, gmail_create, phonenumber_create, address_create);
 
                 loginServices.create(account);
                 break;
