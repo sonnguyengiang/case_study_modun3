@@ -1,6 +1,6 @@
 package Controller;
 
-import Services.Login.LoginServices;
+import Services.LoginServices;
 import models.account.Account;
 
 import javax.servlet.RequestDispatcher;
@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher;
+
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
@@ -30,17 +31,28 @@ public class LoginServlet extends HttpServlet {
 
         switch (action) {
             case "login":
-                String username = req.getParameter("username");
-                String password = req.getParameter("password");
-                String checkString = loginServices.Login(username, password);
-                if (checkString == "user") {
-                    resp.sendRedirect("views/login.jsp");
-                } else if (checkString == "admin") {
-                    resp.sendRedirect("/views/Admin/MainPageAdmin.jsp");
-                } else if (checkString == "null") {
-                    resp.sendRedirect("views/null.jsp");
-                } else {
-                    resp.sendRedirect("views/null.jsp");
+                try {
+                    String username = req.getParameter("username");
+                    String password = req.getParameter("password");
+                    String checkString = loginServices.Login(username, password);
+                    switch (checkString) {
+                        case "user":
+                            resp.sendRedirect("views/login.jsp");
+                            break;
+                        case "admin":
+                            resp.sendRedirect("/views/Admin/MainPageAdmin.jsp");
+                            break;
+                        default:
+                            try {
+                                req.setAttribute("err", true);
+                                dispatcher = req.getRequestDispatcher("index.jsp");
+                                dispatcher.forward(req, resp);
+                            } catch (Exception a) {
+                                a.printStackTrace();
+                            }
+                    }
+                } catch (Exception a) {
+                    a.printStackTrace();
                 }
                 break;
 
@@ -54,14 +66,13 @@ public class LoginServlet extends HttpServlet {
 
                 try {
                     loginServices.create(account);
-                } catch (Exception a){
-                    String err = "Nhập lại";
-                    req.setAttribute("err",err);
+                } catch (Exception a) {
+                    req.setAttribute("CreateErr", true);
                     dispatcher = req.getRequestDispatcher("index.jsp");
                     dispatcher.forward(req, resp);
                 }
+                resp.sendRedirect("index.jsp");
                 break;
         }
-
     }
 }

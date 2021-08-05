@@ -30,6 +30,15 @@ public class Account {
         this.address = address;
     }
 
+    public Account(String userName, String password, String gmail, String phoneNumber, String address, String type) {
+        this.userName = userName;
+        this.password = password;
+        this.gmail = gmail;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }

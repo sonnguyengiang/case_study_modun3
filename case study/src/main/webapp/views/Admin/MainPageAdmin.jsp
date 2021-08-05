@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,26 +23,23 @@
             <h3 align="center" >Menu list</h3>
             <div id="menu">
                 <ul>
-                    <li><a href="#">Sem 1</a>
+                    <li><a href="#">Quản lý tài khoản</a>
                         <ul>
-                            <li><a href="#">Computing Fundametal</a></li>
-                            <li><a href="#">C Programming</a></li>
-                            <li><a href="#">Building Dynamic Website</a></li>
-                            <li><a href="#">MS Transact-SQL</a></li>
-                            <li><a href="#">Project</a></li>
+                            <li><a href="/admin?action">hiện thị toàn bộ tài khoản</a></li>
+                            <li><a href="/admin?action=create">Tạo tài khoản</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Sem 2 </a>
+                    <li><a href="#">Quản lý đơn hàng </a>
                         <ul>
-                            <li><a href="#">Cloud Computing</a></li>
-                            <li><a href="#">APJ - I</a></li>
-                            <li><a href="#">APJ - II</a></li>
-                            <li><a href="#">APJ - III</a></li>
-                            <li><a href="#">eProject</a></li>
+                            <li><a href="#">Hiện thị danh sách đơn hàng</a></li>
+                            <li><a href="#">Thêm sản phẩm</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Sem 3</a></li>
-                    <li><a href="#">Sem 4</a></li>
+                    <li><a href="#">tài chính</a>
+                        <ul>
+                            <li><a href="#">Hiện thị doanh</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

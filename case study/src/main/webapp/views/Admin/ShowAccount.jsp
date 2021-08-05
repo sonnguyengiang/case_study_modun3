@@ -24,6 +24,21 @@
     <table class="table table-hover">
         <thead>
         <tr>
+            <th>Back</th>
+            <th>Create</th>
+            <th>Find</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><a href="views/Admin/MainPageAdmin.jsp"><img src="img/back.png" height="30px" width="30px"></a></td>
+           <td><a href="/admin?action=create"><img src="img/create.png" height="30px" width="30px"></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover">
+        <thead>
+        <tr>
             <th>#</th>
             <th>Username</th>
             <th>Password</th>
@@ -31,10 +46,12 @@
             <th>Gmail</th>
             <th>Address</th>
             <th>Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${AccountList}" var="account">
+        <c:forEach items="${AccountList}" var="account" varStatus="loop">
             <tr>
                 <td>${account.id}</td>
                 <td>${account.userName}</td>
@@ -43,12 +60,15 @@
                 <td>${account.gmail}</td>
                 <td>${account.address}</td>
                 <td>${account.type}</td>
+                <td><a href="/admin?action=edit&index=${loop.index}"><img src="img/edit.png" height="30px" width="30px"></a>
+                </td>
+                <td><a href="/admin?action=delete&index=${loop.index}"><img src="img/trash.png" height="30px"
+                                                                            width="30px"></a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
-
 </body>
 </html>
 

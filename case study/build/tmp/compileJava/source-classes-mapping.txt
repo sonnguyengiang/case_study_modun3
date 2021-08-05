@@ -1,16 +1,14 @@
-Services/Account/UserAccountServices.java
- Services.Account.UserAccountServices
-dao/account/CRUD_Account.java
- dao.account.CRUD_Account
-models/account/Account.java
- models.account.Account
 dao/connectSQL/ConnectionCSDL.java
  dao.connectSQL.ConnectionCSDL
-Services/Login/core/CreateCheck.java
- Services.Login.core.CreateCheck
-Services/Account/AdminAccountServices.java
- Services.Account.AdminAccountServices
+models/account/Account.java
+ models.account.Account
+Services/AccountServices.java
+ Services.AccountServices
+dao/CRUD_Account.java
+ dao.CRUD_Account
+Controller/AdminServlet.java
+ Controller.AdminServlet
+Services/LoginServices.java
+ Services.LoginServices
 Controller/LoginServlet.java
  Controller.LoginServlet
-Services/Login/LoginServices.java
- Services.Login.LoginServices
