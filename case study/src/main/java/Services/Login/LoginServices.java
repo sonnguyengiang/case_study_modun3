@@ -52,13 +52,8 @@ public class LoginServices {
     }
 
 
-
-    public void create(Account account){
-        try {
-            CRUD_Account.createUser(account);
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        }
+    public void create(Account account) throws SQLException {
+        CRUD_Account.createUser(account);
         list.add(account);
     }
 }

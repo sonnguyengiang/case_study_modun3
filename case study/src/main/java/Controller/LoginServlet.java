@@ -3,6 +3,7 @@ package Controller;
 import Services.Login.LoginServices;
 import models.account.Account;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher;
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
@@ -34,10 +36,9 @@ public class LoginServlet extends HttpServlet {
                 if (checkString == "user") {
                     resp.sendRedirect("views/login.jsp");
                 } else if (checkString == "admin") {
-                    resp.sendRedirect("views/Admin/MainPageAdminjsp.jsp");
+                    resp.sendRedirect("/views/Admin/MainPageAdmin.jsp");
                 } else if (checkString == "null") {
                     resp.sendRedirect("views/null.jsp");
-
                 } else {
                     resp.sendRedirect("views/null.jsp");
                 }
@@ -51,7 +52,14 @@ public class LoginServlet extends HttpServlet {
                 String address_create = req.getParameter("address");
                 Account account = new Account(username_create, password_create, gmail_create, phonenumber_create, address_create);
 
-                loginServices.create(account);
+                try {
+                    loginServices.create(account);
+                } catch (Exception a){
+                    String err = "Nhập lại";
+                    req.setAttribute("err",err);
+                    dispatcher = req.getRequestDispatcher("index.jsp");
+                    dispatcher.forward(req, resp);
+                }
                 break;
         }
 

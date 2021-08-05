@@ -67,11 +67,9 @@
                         <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
                     </div>
                 </form>
-                <%
-                    String username =  request.getParameter("username");
-                    ArrayList<Account> list = CRUD_Account.login(username);
-                %>
-
+                <h1>
+                    ${err}
+                </h1>
 <%--                sign up--%>
                 <form action="/login?action=create" method="post">
                 <div class="cont_form_sign_up">
