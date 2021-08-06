@@ -62,7 +62,7 @@
                         <c:if test="${err}">
                             <p align="center" style="color: #ef5350">tài khoản hoặc mật khẩu không chính xác</p>
                         </c:if>
-                        <input type="text" placeholder="Username" name="username" required pattern="[a-zA-Z0-9_].{1,30}"  title="không thể để ô trống: ký tự hợp lệ: _" />
+                        <input type="text" placeholder="Username or Gmail" name="username" required pattern="[a-zA-Z0-9_].{1,30}"  title="không thể để ô trống: ký tự hợp lệ: _" />
                         <input type="password" placeholder="Password" name="password" required pattern="[a-zA-Z0-9].{1,30}" title="không thể để ô trống" />
                         <button type="submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
                     </div>

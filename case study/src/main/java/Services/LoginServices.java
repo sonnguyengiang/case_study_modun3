@@ -14,25 +14,21 @@ public class LoginServices {
 
     /* kiểm tra và phân loại user */
     public String Login(String username, String password) throws SQLException {
-        String check = "null";
         list = CRUD_Account.login(username);
         if (list.size() == 0) {
-            return check;
-        } else if (!list.get(0).getUserName().equals(username)) {
+            return "null";
+        } else if (list.get(0).getGmail().equals(username) || list.get(0).getUserName().equals(username)) {
+            return  checkPass(password);
+        } else{
             return "userFalse";
-        } else {
-            check = checkPass(password);
-            return check;
         }
     }
 
     private String checkPass(String password) {
-        String checkPassword = "passFalse";
         if (!list.get(0).getPassword().equals(password)) {
-            return checkPassword;
+            return "false";
         } else {
-            checkPassword = checkUser();
-            return checkPassword;
+            return checkUser();
         }
     }
 
@@ -46,6 +42,7 @@ public class LoginServices {
             return checkUser;
         }
     }
+
 
 
     public void create(Account account) throws SQLException {

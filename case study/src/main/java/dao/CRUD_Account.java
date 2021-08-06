@@ -32,10 +32,10 @@ public class CRUD_Account {
     }
 
     public static ArrayList<Account> login(String user) throws SQLException {
-        String take_data_login = "select * from account where username like '"+ user + "'";
+        String take_data_login_user = "select * from account where username like '"+ user + "' or gmail like '"+ user +"' ";
 
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(take_data_login);
+        ResultSet resultSet = statement.executeQuery(take_data_login_user);
         ArrayList<Account> list = new ArrayList<>();
 
         while (resultSet.next()) {
@@ -50,12 +50,10 @@ public class CRUD_Account {
             Account account = new Account(id, username, password, gmail, phoneNumber, address, type);
             list.add(account);
 
-            System.out.println(user);
-            System.out.println(password);
-            System.out.println(type);
         }
         return list;
     }
+
 
     public static void create(Account account) throws SQLException {
         String create = "INSERT INTO account (username, password, phonenumber, gmail, address) VALUES (?,?,?,?,?);";
