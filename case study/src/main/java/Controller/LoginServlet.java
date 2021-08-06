@@ -1,7 +1,7 @@
 package Controller;
 
 import Services.LoginServices;
-import models.account.Account;
+import models.Account;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -35,7 +35,7 @@
             <tbody>
             <tr>
                 <td><input type="text" name="id" value="${accountEdit.id}" readonly></td>
-                <td><input type="text" name="username" value="${accountEdit.userName}"></td>
+                <td><input type="text" name="username" value="${accountEdit.userName}" readonly></td>
                 <td><input type="text" name="password" value="${accountEdit.password}"></td>
                 <td><input type="text" name="gmail" value="${accountEdit.gmail}"></td>
                 <td><input type="text" name="phonenumber" value="${accountEdit.phoneNumber}"></td>

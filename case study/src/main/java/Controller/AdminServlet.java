@@ -1,7 +1,7 @@
 package Controller;
 
 import Services.AccountServices;
-import models.account.Account;
+import models.Account;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

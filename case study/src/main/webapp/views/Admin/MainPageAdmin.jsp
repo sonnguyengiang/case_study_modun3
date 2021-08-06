@@ -31,7 +31,7 @@
                     </li>
                     <li><a href="#">Quản lý đơn hàng </a>
                         <ul>
-                            <li><a href="#">Hiện thị danh sách đơn hàng</a></li>
+                            <li><a href="/product?action=show">Hiện thị danh sách đơn hàng</a></li>
                             <li><a href="#">Thêm sản phẩm</a></li>
                         </ul>
                     </li>

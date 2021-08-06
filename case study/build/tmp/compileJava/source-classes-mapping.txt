@@ -1,14 +1,22 @@
-dao/CRUD_Account.java
- dao.CRUD_Account
-models/account/Account.java
- models.account.Account
-Controller/AdminServlet.java
- Controller.AdminServlet
-Services/AccountServices.java
- Services.AccountServices
-Services/LoginServices.java
- Services.LoginServices
 dao/connectSQL/ConnectionCSDL.java
  dao.connectSQL.ConnectionCSDL
+Services/LoginServices.java
+ Services.LoginServices
+Controller/AdminServlet.java
+ Controller.AdminServlet
 Controller/LoginServlet.java
  Controller.LoginServlet
+Services/AccountServices.java
+ Services.AccountServices
+dao/CRUD_Account.java
+ dao.CRUD_Account
+models/Account.java
+ models.Account
+models/Product.java
+ models.Product
+Controller/ProductServlet.java
+ Controller.ProductServlet
+Services/ProductServices.java
+ Services.ProductServices
+dao/CRUD_Product.java
+ dao.CRUD_Product

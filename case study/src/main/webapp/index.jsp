@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="models.account.Account" %>
+<%@ page import="models.Account" %>
 <%@ page import="dao.CRUD_Account" %>
 <%@ page import="javax.servlet.annotation.WebServlet" %><%--
   Created by IntelliJ IDEA.

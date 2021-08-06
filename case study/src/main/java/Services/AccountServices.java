@@ -1,7 +1,7 @@
 package Services;
 
 import dao.CRUD_Account;
-import models.account.Account;
+import models.Account;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

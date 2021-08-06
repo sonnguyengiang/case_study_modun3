@@ -21,13 +21,14 @@
     <table class="table table-hover">
         <thead>
         <tr>
+            <th>#</th>
             <th>Username</th>
             <th>Password</th>
             <th>Phone number</th>
             <th>Gmail</th>
             <th>Address</th>
             <th>Type</th>
-            <th>Create</th>
+            <th>create</th>
         </tr>
         </thead>
         <form action="/admin?action=create" method="post">

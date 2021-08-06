@@ -1,7 +1,7 @@
 package dao;
 
 import dao.connectSQL.ConnectionCSDL;
-import models.account.Account;
+import models.Account;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package Services;
 
 import dao.CRUD_Account;
-import models.account.Account;
+import models.Account;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ public class LoginServices {
         if (list.size() == 0) {
             return "null";
         } else if (list.get(0).getGmail().equals(username) || list.get(0).getUserName().equals(username)) {
-            return  checkPass(password);
-        } else{
+            return checkPass(password);
+        } else {
             return "userFalse";
         }
     }
@@ -42,7 +42,6 @@ public class LoginServices {
             return checkUser;
         }
     }
-
 
 
     public void create(Account account) throws SQLException {
