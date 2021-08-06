@@ -3,7 +3,8 @@ package dao.connectSQL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionCSDL {public static Connection getConnection(){
+public class ConnectionCSDL {
+    public static Connection getConnection(){
     try {
         String url = "jdbc:mysql://localhost:3306/case_study";
         String user = "root";
