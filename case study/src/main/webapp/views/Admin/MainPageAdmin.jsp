@@ -40,6 +40,9 @@
                             <li><a href="#">Hiện thị doanh</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="/index.jsp">log out</a>
+                    </li>
                 </ul>
             </div>
         </div>

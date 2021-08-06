@@ -1,5 +1,5 @@
-Controller/LoginServlet.java
- Controller.LoginServlet
+dao/CRUD_Account.java
+ dao.CRUD_Account
 models/account/Account.java
  models.account.Account
 Controller/AdminServlet.java
@@ -10,5 +10,5 @@ Services/LoginServices.java
  Services.LoginServices
 dao/connectSQL/ConnectionCSDL.java
  dao.connectSQL.ConnectionCSDL
-dao/CRUD_Account.java
- dao.CRUD_Account
+Controller/LoginServlet.java
+ Controller.LoginServlet

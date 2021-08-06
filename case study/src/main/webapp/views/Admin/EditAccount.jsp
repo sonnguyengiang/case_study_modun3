@@ -53,6 +53,7 @@
             </tbody>
         </form>
     </table>
+    <a href="/admin"><img src="img/back.png" height="30px" width="30px"></a>
 </div>
 </body>
 </html>

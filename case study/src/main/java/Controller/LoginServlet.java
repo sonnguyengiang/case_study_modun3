@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
                     String checkString = loginServices.Login(username, password);
                     switch (checkString) {
                         case "user":
-                            resp.sendRedirect("views/login.jsp");
+                            resp.sendRedirect("views/User/index.jsp");
                             break;
                         case "admin":
                             resp.sendRedirect("/views/Admin/MainPageAdmin.jsp");
