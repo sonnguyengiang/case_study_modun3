@@ -15,7 +15,7 @@ public class CRUD_Product {
         ResultSet resultSet = statement.executeQuery(select);
         ArrayList<Product> list = new ArrayList<>();
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             int id = resultSet.getInt("id_sp");
             String tensp = resultSet.getString("name_sp");
             String color = resultSet.getString("mau_sp");
@@ -27,14 +27,12 @@ public class CRUD_Product {
             Product product = new Product(id, tensp, color, tenhang, type, count, price, img);
 
             list.add(product);
-
-            System.out.println(color);
         }
         return list;
     }
 
     public static void createProduct(Product product) throws SQLException {
-        String create ="insert into product(name_sp, mau_sp, tenhanng, loaisp, soluong, price, img) value (?,?,?,?,?,?,?)";
+        String create = "insert into product(name_sp, mau_sp, tenhanng, loaisp, soluong, price, img) value (?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(create);
         preparedStatement.setString(1, product.getName());
         preparedStatement.setString(2, product.getColor());
@@ -47,7 +45,7 @@ public class CRUD_Product {
     }
 
     public static void editProduct(Product product, int id) throws SQLException {
-        String edit ="update product set name_sp = ?, mau_sp = ?, tenhanng = ?, loaisp = ?, soluong = ?, price = ?, img = ? where id_sp = ?";
+        String edit = "update product set name_sp = ?, mau_sp = ?, tenhanng = ?, loaisp = ?, soluong = ?, price = ?, img = ? where id_sp = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(edit);
         preparedStatement.setString(1, product.getName());
         preparedStatement.setString(2, product.getColor());
@@ -61,9 +59,33 @@ public class CRUD_Product {
     }
 
     public static void deleteProduct(int id) throws SQLException {
-        String delete = "delete";
+        String delete = "delete from product where id_sp = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(delete);
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+        System.out.println(id);
+    }
 
+    public static ArrayList<Product> find(String nameProduct) throws SQLException {
+        String find = "select * from product where name_sp like '%" + nameProduct + "%'";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(find);
+        ArrayList<Product> list = new ArrayList<>();
+
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id_sp");
+            String tensp = resultSet.getString("name_sp");
+            String color = resultSet.getString("mau_sp");
+            String tenhang = resultSet.getString("tenhanng");
+            String type = resultSet.getString("loaisp");
+            int count = resultSet.getInt("soluong");
+            int price = resultSet.getInt("price");
+            String img = resultSet.getString("img");
+            Product product = new Product(id, tensp, color, tenhang, type, count, price, img);
+
+            list.add(product);
+        }
+        return list;
     }
 
 }

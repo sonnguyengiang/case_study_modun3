@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 </head>
 <body>
 
@@ -29,12 +33,15 @@
             <th>Find</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td><a href="/views/Admin/MainPageAdmin.jsp"><img src="img/back.png" height="30px" width="30px"></a></td>
-            <td><a href="/product?action=create"><img src="img/create.png" height="30px" width="30px"></a></td>
-        </tr>
-        </tbody>
+        <form action="/product?action=find" method="post">
+            <tbody>
+            <tr>
+                <td><a href="/views/Admin/MainPageAdmin.jsp"><img src="img/back.png" height="30px" width="30px"></a></td>
+                <td><a href="/product?action=create"><img src="img/create.png" height="30px" width="30px"></a></td>
+                <td><input type="text" name="find"><button type="submit"><img src="/img/find.png" height="30px" width="30px"></button></td>
+            </tr>
+            </tbody>
+        </form>
     </table>
     <table class="table table-hover">
         <thead>

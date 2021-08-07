@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class AccountServices {
     public ArrayList<Account> list = new ArrayList<>();
 
+
     public AccountServices(){
         try {
             list = CRUD_Account.show();
@@ -43,4 +44,16 @@ public class AccountServices {
         }
         list.set(index, account);
     }
+
+    public ArrayList<Account> find(String user){
+        ArrayList<Account> list = new ArrayList<>();
+        try {
+            list = CRUD_Account.find(user);
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return list;
+    }
+
+
 }

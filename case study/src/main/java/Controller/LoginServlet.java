@@ -1,6 +1,8 @@
 package Controller;
 
 import Services.LoginServices;
+import Services.ProductServices;
+import Services.UserBillServices;
 import models.Account;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +16,8 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
     LoginServices loginServices = new LoginServices();
+    ProductServices  productServices = new ProductServices();
+    UserBillServices userBillServices = new UserBillServices();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,10 +38,15 @@ public class LoginServlet extends HttpServlet {
                 try {
                     String username = req.getParameter("username");
                     String password = req.getParameter("password");
+                    userBillServices.getUsernameTest(username);
                     String checkString = loginServices.Login(username, password);
                     switch (checkString) {
                         case "user":
-                            resp.sendRedirect("views/User/index.jsp");
+//                            productServices.updateList();
+//                            req.setAttribute("productList", productServices.list);
+//                            dispatcher = req.getRequestDispatcher("/views/User/index.jsp");
+//                            dispatcher.forward(req, resp);
+                            resp.sendRedirect("/user?action=home");
                             break;
                         case "admin":
                             resp.sendRedirect("/views/Admin/MainPageAdmin.jsp");

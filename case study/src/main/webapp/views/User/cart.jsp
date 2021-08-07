@@ -16,30 +16,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Place favicon.ico in the root directory -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/views/User/images/favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 
   <!-- All css files are included here. -->
   <!-- Bootstrap fremwork main css -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="/views/User/css/bootstrap.min.css">
   <!-- Owl Carousel min css -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/views/User/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/views/User/css/owl.theme.default.min.css">
   <!-- This core.css file contents all plugings css file. -->
-  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="/views/User/css/core.css">
   <!-- Theme shortcodes/elements style -->
-  <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+  <link rel="stylesheet" href="/views/User/css/shortcode/shortcodes.css">
   <!-- Theme main style -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/views/User/style.css">
   <!-- Responsive css -->
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="/views/User/css/responsive.css">
   <!-- User style -->
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="/views/User/css/custom.css">
 
 
   <!-- Modernizr JS -->
-  <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="/views/User/js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
 
 <body>
@@ -284,7 +284,7 @@
   </div>
   <!-- End Offset Wrapper -->
   <!-- Start Bradcaump area -->
-  <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+  <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.png) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
       <div class="container">
         <div class="row">

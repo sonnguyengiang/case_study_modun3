@@ -13,6 +13,10 @@
     <title>Title</title>
     <link rel="stylesheet" href="/css/Admin/mainPage.css">
     <link rel="stylesheet" href="/css/Admin/menuList.css">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 </head>
 <body>
 <div id="main">
@@ -32,7 +36,7 @@
                     <li><a href="#">Quản lý đơn hàng </a>
                         <ul>
                             <li><a href="/product?action=show">Hiện thị danh sách đơn hàng</a></li>
-                            <li><a href="#">Thêm sản phẩm</a></li>
+                            <li><a href="/product?action=create">Thêm sản phẩm</a></li>
                         </ul>
                     </li>
                     <li><a href="#">tài chính</a>

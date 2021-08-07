@@ -1,6 +1,7 @@
 package Controller;
 
 import Services.AccountServices;
+import dao.CRUD_Account;
 import models.Account;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(urlPatterns = {"/admin"})
 public class AdminServlet extends HttpServlet {
@@ -37,6 +40,18 @@ public class AdminServlet extends HttpServlet {
                 int index_edit = Integer.parseInt(req.getParameter("index"));
                 req.setAttribute("accountEdit", accountServices.list.get(index_edit));
                 dispatcher = req.getRequestDispatcher("views/Admin/EditAccount.jsp");
+                dispatcher.forward(req, resp);
+                break;
+            case "find":
+                String user = req.getParameter("find");
+                ArrayList<Account> list = null;
+                try {
+                    list = CRUD_Account.find(user);
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+                req.setAttribute("AccountList", list);
+                dispatcher = req.getRequestDispatcher("/views/Admin/ShowAccount.jsp");
                 dispatcher.forward(req, resp);
                 break;
             default:
@@ -78,6 +93,18 @@ public class AdminServlet extends HttpServlet {
                 Account account_edit = new Account(username_edit, password_edit, gmail_edit, phonenumber_edit, address_edit, type_edit);
                 accountServices.edit(account_edit, index_edit);
                 resp.sendRedirect("/admin");
+                break;
+            case "find":
+                String user = req.getParameter("find");
+                ArrayList<Account> list = null;
+                try {
+                    list = CRUD_Account.find(user);
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+                req.setAttribute("AccountList", list);
+                dispatcher = req.getRequestDispatcher("/views/Admin/ShowAccount.jsp");
+                dispatcher.forward(req, resp);
                 break;
             default:
                 req.setAttribute("AccountList", accountServices.list);

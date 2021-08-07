@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 </head>
 <body>
 <div class="container">
@@ -21,7 +25,6 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>#</th>
             <th>Username</th>
             <th>Password</th>
             <th>Phone number</th>

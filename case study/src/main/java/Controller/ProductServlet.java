@@ -1,6 +1,7 @@
 package Controller;
 
 import Services.ProductServices;
+import dao.CRUD_Product;
 import models.Product;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(urlPatterns = "/product")
 public class ProductServlet extends HttpServlet {
@@ -41,6 +44,7 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "delete":
                 int index_delete = Integer.parseInt(req.getParameter("index"));
+                productServices.delete(index_delete);
                 resp.sendRedirect("/product?action=show");
                 break;
         }
@@ -59,6 +63,18 @@ public class ProductServlet extends HttpServlet {
                 dispatcher = req.getRequestDispatcher("/views/Admin/ShowProduct.jsp");
                 dispatcher.forward(req, resp);
                 break;
+            case "find":
+                String nameProduct = req.getParameter("find");
+                ArrayList<Product> list = null;
+                try {
+                    list = CRUD_Product.find(nameProduct);
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+                req.setAttribute("productList", list);
+                dispatcher = req.getRequestDispatcher("/views/Admin/ShowProduct.jsp");
+                dispatcher.forward(req, resp);
+                break;
             case "create":
                 String tensp = req.getParameter("tensp");
                 String tenhang = req.getParameter("tenhang");
@@ -70,6 +86,7 @@ public class ProductServlet extends HttpServlet {
                 Product product = new Product(tensp, color, tenhang, loaisp, soluong, gia, img);
                 productServices.create(product);
                 resp.sendRedirect("/product?action=show");
+                break;
             case "edit":
                 int index_edit = Integer.parseInt(req.getParameter("index"));
                 String tensp_edit = req.getParameter("tensp");
@@ -82,6 +99,7 @@ public class ProductServlet extends HttpServlet {
                 Product product_edit = new Product(tensp_edit, color_edit, tenhang_edit, loaisp_edit, soluong_edit, gia_edit, img_edit);
                 productServices.edit(product_edit, index_edit);
                 resp.sendRedirect("/product?action=show");
+                break;
             default:
 
         }

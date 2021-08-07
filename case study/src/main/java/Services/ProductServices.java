@@ -45,4 +45,13 @@ public class ProductServices {
         }
         list.set(index, product);
     }
+
+    public void delete(int index){
+        try {
+            CRUD_Product.deleteProduct(list.get(index).getId());
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        list.remove(index);
+    }
 }

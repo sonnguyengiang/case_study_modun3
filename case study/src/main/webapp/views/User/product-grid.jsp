@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Admin
-  Date: 06/08/2021
-  Time: 14:14
+  Date: 07/08/2021
+  Time: 14:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,30 +15,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/views/User/images/favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/views/User/css/bootstrap.min.css">
     <!-- Owl Carousel min css -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/views/User/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/views/User/css/owl.theme.default.min.css">
     <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="/views/User/css/core.css">
     <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="/views/User/css/shortcode/shortcodes.css">
     <!-- Theme main style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/views/User/style.css">
     <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="/views/User/css/responsive.css">
     <!-- User style -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="/views/User/css/custom.css">
 
 
     <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/views/User/js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
 
 <body>
@@ -195,7 +195,7 @@
     </div>
     <!-- End Offset Wrapper -->
     <!-- Start Bradcaump area -->
-    <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+    <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.png) no-repeat scroll center center / cover ;">
         <div class="ht__bradcaump__wrap">
             <div class="container">
                 <div class="row">
@@ -721,23 +721,6 @@
                             </div>
                         </div>
                         <!-- End Prize Range -->
-                        <!-- Start Category Area -->
-                        <div class="htc__category">
-                            <h4 class="title__line--4">categories</h4>
-                            <ul class="ht__cat__list">
-                                <li><a href="#">Clothing</a></li>
-                                <li><a href="#">Bags</a></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">Jewelry</a></li>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Food / Drink Store</a></li>
-                                <li><a href="#">Gift Store</a></li>
-                                <li><a href="#">Accessories</a></li>
-                                <li><a href="#">Watch</a></li>
-                                <li><a href="#">Other</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Category Area -->
 
                         <!-- Start Pro Color -->
                         <div class="ht__pro__color">
@@ -752,124 +735,6 @@
                             </ul>
                         </div>
                         <!-- End Pro Color -->
-                        <!-- Start Pro Size -->
-                        <div class="ht__pro__size">
-                            <h4 class="title__line--4">Size</h4>
-                            <ul class="ht__size__list">
-                                <li><a href="#">xs</a></li>
-                                <li><a href="#">s</a></li>
-                                <li><a href="#">m</a></li>
-                                <li><a href="#">reld</a></li>
-                                <li><a href="#">xl</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Pro Size -->
-                        <!-- Start Tag Area -->
-                        <div class="htc__tag">
-                            <h4 class="title__line--4">tags</h4>
-                            <ul class="ht__tag__list">
-                                <li><a href="#">Clothing</a></li>
-                                <li><a href="#">bag</a></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">Jewelry</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Aceessories</a></li>
-                                <li><a href="#">Store</a></li>
-                                <li><a href="#">Watch</a></li>
-                                <li><a href="#">Other</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Tag Area -->
-                        <!-- Start Compare Area -->
-                        <div class="htc__compare__area">
-                            <h4 class="title__line--4">compare</h4>
-                            <ul class="htc__compare__list">
-                                <li><a href="#">White men’s polo<i class="icon-trash icons"></i></a></li>
-                                <li><a href="#">T-shirt for style girl...<i class="icon-trash icons"></i></a></li>
-                                <li><a href="#">Basic dress for women...<i class="icon-trash icons"></i></a></li>
-                            </ul>
-                            <ul class="ht__com__btn">
-                                <li><a href="#">clear all</a></li>
-                                <li class="compare"><a href="#">Compare</a></li>
-                            </ul>
-                        </div>
-                        <!-- End Compare Area -->
-                        <!-- Start Best Sell Area -->
-                        <div class="htc__recent__product">
-                            <h2 class="title__line--4">best seller</h2>
-                            <div class="htc__recent__product__inner">
-                                <!-- Start Single Product -->
-                                <div class="htc__best__product">
-                                    <div class="htc__best__pro__thumb">
-                                        <a href="product-details.html">
-                                            <img src="images/product-2/sm-smg/1.jpg" alt="small product">
-                                        </a>
-                                    </div>
-                                    <div class="htc__best__product__details">
-                                        <h2><a href="product-details.html">Product Title Here</a></h2>
-                                        <ul class="rating">
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                        </ul>
-                                        <ul  class="pro__prize">
-                                            <li class="old__prize">$82.5</li>
-                                            <li>$75.2</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="htc__best__product">
-                                    <div class="htc__best__pro__thumb">
-                                        <a href="product-details.html">
-                                            <img src="images/product-2/sm-smg/2.jpg" alt="small product">
-                                        </a>
-                                    </div>
-                                    <div class="htc__best__product__details">
-                                        <h2><a href="product-details.html">Product Title Here</a></h2>
-                                        <ul class="rating">
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                        </ul>
-                                        <ul  class="pro__prize">
-                                            <li class="old__prize">$82.5</li>
-                                            <li>$75.2</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                                <!-- Start Single Product -->
-                                <div class="htc__best__product">
-                                    <div class="htc__best__pro__thumb">
-                                        <a href="product-details.html">
-                                            <img src="images/product-2/sm-smg/1.jpg" alt="small product">
-                                        </a>
-                                    </div>
-                                    <div class="htc__best__product__details">
-                                        <h2><a href="product-details.html">Product Title Here</a></h2>
-                                        <ul class="rating">
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                            <li class="old"><i class="icon-star icons"></i></li>
-                                        </ul>
-                                        <ul  class="pro__prize">
-                                            <li class="old__prize">$82.5</li>
-                                            <li>$75.2</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- End Single Product -->
-                            </div>
-                        </div>
-                        <!-- End Best Sell Area -->
                     </div>
                 </div>
             </div>
@@ -1032,17 +897,17 @@
 <!-- Placed js at the end of the document so the pages load faster -->
 
 <!-- jquery latest version -->
-<script src="js/vendor/jquery-3.2.1.min.js"></script>
+<script src="/views/User/js/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap framework js -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/views/User/js/bootstrap.min.js"></script>
 <!-- All js plugins included in this file. -->
-<script src="js/plugins.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
+<script src="/views/User/js/plugins.js"></script>
+<script src="/views/User/js/slick.min.js"></script>
+<script src="/views/User/js/owl.carousel.min.js"></script>
 <!-- Waypoints.min.js. -->
-<script src="js/waypoints.min.js"></script>
+<script src="/views/User/js/waypoints.min.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
-<script src="js/main.js"></script>
+<script src="/views/User/js/main.js"></script>
 
 </body>
 

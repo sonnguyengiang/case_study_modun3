@@ -113,6 +113,7 @@ public class CRUD_Account {
             Account account = new Account(id, username, password, gmail, phoneNumber, address, type);
 
             list.add(account);
+            System.out.println(username);
         }
         return list;
     }
@@ -123,6 +124,20 @@ public class CRUD_Account {
         PreparedStatement preparedStatement = connection.prepareStatement(delete);
         preparedStatement.setInt(1, id);
         preparedStatement.execute();
+    }
+
+
+    public static int getIdUser(String user) throws SQLException {
+        String getIdUser = "select id_account from where username like "+ user + "";
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(getIdUser);
+        ArrayList<Account> list = new ArrayList<>();
+        int id = 0;
+        while (resultSet.next()) {
+            id = resultSet.getInt("id_account");
+        }
+        return id;
     }
 }
 

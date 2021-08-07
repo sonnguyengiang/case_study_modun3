@@ -38,6 +38,9 @@ public class Account {
         this.address = address;
         this.type = type;
     }
+    public Account(int id){
+        this.id = id;
+    }
 
     public int getId() {
         return id;
