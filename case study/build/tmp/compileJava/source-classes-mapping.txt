@@ -1,34 +1,36 @@
-dao/CRUD_Product.java
- dao.CRUD_Product
-models/Detail_Bill.java
- models.Detail_Bill
+Controller/AdminServlet.java
+ Controller.AdminServlet
+Services/ProductServices.java
+ Services.ProductServices
 dao/connectSQL/ConnectionCSDL.java
  dao.connectSQL.ConnectionCSDL
 dao/CRUD_Bill.java
  dao.CRUD_Bill
-models/UserBill.java
- models.UserBill
+models/Detail_Bill.java
+ models.Detail_Bill
 models/Product.java
  models.Product
-Controller/ProductServlet.java
- Controller.ProductServlet
-Services/ProductServices.java
- Services.ProductServices
-Services/LoginServices.java
- Services.LoginServices
-Controller/AdminServlet.java
- Controller.AdminServlet
-models/Account.java
- models.Account
-Services/AccountServices.java
- Services.AccountServices
 dao/CRUD_Account.java
  dao.CRUD_Account
+dao/CRUD_Product.java
+ dao.CRUD_Product
+Services/AccountServices.java
+ Services.AccountServices
+models/Account.java
+ models.Account
+Services/LoginServices.java
+ Services.LoginServices
+Controller/ProductServlet.java
+ Controller.ProductServlet
 dao/CRUD_test.java
  dao.CRUD_test
+dao/CRUD_Detail_Bill.java
+ dao.CRUD_Detail_Bill
+models/UserBill.java
+ models.UserBill
 Controller/LoginServlet.java
  Controller.LoginServlet
-Services/UserBillServices.java
- Services.UserBillServices
+Services/DetailBillServices.java
+ Services.DetailBillServices
 Controller/UserServlet.java
  Controller.UserServlet

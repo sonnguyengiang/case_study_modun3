@@ -2,7 +2,7 @@ package Controller;
 
 import Services.LoginServices;
 import Services.ProductServices;
-import Services.UserBillServices;
+import Services.DetailBillServices;
 import models.Account;
 
 import javax.servlet.RequestDispatcher;
@@ -11,13 +11,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
     LoginServices loginServices = new LoginServices();
     ProductServices  productServices = new ProductServices();
-    UserBillServices userBillServices = new UserBillServices();
+    DetailBillServices detailBillServices = new DetailBillServices();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,14 +39,13 @@ public class LoginServlet extends HttpServlet {
                 try {
                     String username = req.getParameter("username");
                     String password = req.getParameter("password");
-                    userBillServices.getUsernameTest(username);
                     String checkString = loginServices.Login(username, password);
+                    int id_user = loginServices.getIdUser(username);
+                    HttpSession session = req.getSession();
+                    session.setAttribute("username", username);
+                    session.setAttribute("iduser", id_user);
                     switch (checkString) {
                         case "user":
-//                            productServices.updateList();
-//                            req.setAttribute("productList", productServices.list);
-//                            dispatcher = req.getRequestDispatcher("/views/User/index.jsp");
-//                            dispatcher.forward(req, resp);
                             resp.sendRedirect("/user?action=home");
                             break;
                         case "admin":

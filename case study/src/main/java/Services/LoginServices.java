@@ -16,6 +16,7 @@ public class LoginServices {
     /* kiểm tra và phân loại user */
     public String Login(String username, String password) throws SQLException {
         list = CRUD_Account.login(username);
+
         if (list.size() == 0) {
             return "null";
         } else if (list.get(0).getGmail().equals(username) || list.get(0).getUserName().equals(username)) {
@@ -48,6 +49,16 @@ public class LoginServices {
     public void create(Account account) throws SQLException {
         CRUD_Account.create(account);
         list.add(account);
+    }
+
+    public int getIdUser(String username){
+        ArrayList<Account> list = null;
+        try {
+            list = CRUD_Account.login(username);
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return list.get(0).getId();
     }
 
 

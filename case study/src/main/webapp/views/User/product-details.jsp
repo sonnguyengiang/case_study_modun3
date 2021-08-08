@@ -266,10 +266,12 @@
                                 </div>
                                 <div class="sin__desc align--left">
                                     <p><span>số lượng</span></p>
-                                    <input type="number" name="number">
-                                    <div class="pro__more__btn">
-                                        <a href="/user?action=addProduct&index=${productListView.id}">thêm vào giỏ hàng</a>
-                                    </div>
+                                    <form action="/user?action=addProduct&index=${productListView.id}&price=${productListView.price}&id_user=${iduser}" method="post">
+                                        <input type="number" name="number">
+                                        <div class="pro__more__btn">
+                                            <button type="submit">thêm vào giỏ hàng</button>
+                                        </div>
+                                    </form>
                                 </div><br>
                             </div>
                         </div>

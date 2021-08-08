@@ -58,7 +58,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${showBillList}" var="bill" varStatus="loop">
+        <c:forEach items="${Cart}" var="bill" varStatus="loop">
             <tr>
                 <td>${bill.img}</td>
                 <td>${bill.name}</td>

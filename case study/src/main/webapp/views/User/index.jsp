@@ -66,6 +66,8 @@
                         <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
                             <nav class="main__menu__nav hidden-xs hidden-sm">
                                 <ul class="main__menu">
+                                    <li class="drop"><a>xin chào ${username}</a>
+                                    </li>
                                     <li class="drop"><a href="/user?action=home">Home</a></li>
 
                                     <li class="drop"><a href="/views/User/product-grid.jsp">Product</a>
@@ -76,7 +78,7 @@
                                     <li class="drop">
                                         <a href="#">Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="product-details.html">Giỏ hàng</a></li>
+                                            <li><a href="/user?action=showCart&user=${username}">Giỏ hàng</a></li>
                                             <li><a href="index.jsp">log out</a></li>
                                         </ul>
                                     </li>
@@ -207,7 +209,7 @@
                         <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
                             <div class="slide">
                                 <div class="slider__inner">
-                                    <h2>collection 2018</h2>
+                                    <h2>Dell G3</h2>
                                     <h1>NICE CHAIR</h1>
                                     <div class="cr__btn">
                                         <a href="/user?action=home">Shop Now</a>
@@ -217,7 +219,31 @@
                         </div>
                         <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                             <div class="slide__thumb">
-                                <img src="https://banlaptopcudanang.com.vn/wp-content/uploads/2019/10/dell_inspiron_g3__1_1.jpg" alt="slider images">
+                                <img src="https://i.imgur.com/7Cj1VQc.png" alt="slider images">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Slide -->
+            <!-- Start Single Slide -->
+            <div class="single__slide animation__style01 slider__fixed--height">
+                <div class="container">
+                    <div class="row align-items__center">
+                        <div class="col-md-7 col-sm-7 col-xs-12 col-lg-6">
+                            <div class="slide">
+                                <div class="slider__inner">
+                                    <h2>Quí bỉu earth</h2>
+                                    <h1>NICE CHAIR</h1>
+                                    <div class="cr__btn">
+                                        <a href="/user?action=home">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
+                            <div class="slide__thumb">
+                                <img src="https://i.imgur.com/ZcNhEmr.png" alt="slider images">
                             </div>
                         </div>
                     </div>
@@ -241,7 +267,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                             <div class="slide__thumb">
-                                <img src="https://conen.vn/wp-content/uploads/2021/06/laptop-gaming.jpg" alt="slider images">
+                                <img src="https://i.imgur.com/ENH5ZyZ.png" alt="slider images">
                             </div>
                         </div>
                     </div>
@@ -265,7 +291,7 @@
                         </div>
                         <div class="col-lg-6 col-sm-5 col-xs-12 col-md-5">
                             <div class="slide__thumb">
-                                <img src="https://cdn.ankhang.vn/media/product/18230-dell-gaming-g3-15-3500-70223130-0.jpg" alt="slider images">
+                                <img src="https://i.imgur.com/uzCcZ7K.png" alt="slider images">
                             </div>
                         </div>
                     </div>
@@ -299,8 +325,8 @@
                                     </div>
                                     <div class="fr__hover__info">
                                         <ul class="product__action">
-                                            <li><a href="/user?action=addProduct&index=${loop.index}"><i class="icon-handbag icons"></i></a></li>
-                                            <li><a href="/user?action=showBill"><i class="icon-shuffle icons"></i></a></li>
+                                            <li><a href="/user?action=addDetailBill&index=${product.id}"><i class="icon-handbag icons"></i></a></li>
+                                            <li><a href="/user?action=showCart&user=${username}&index=${product.id}"><i class="icon-shuffle icons"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="fr__product__inner">
