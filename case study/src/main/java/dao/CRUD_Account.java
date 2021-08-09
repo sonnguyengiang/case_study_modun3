@@ -139,6 +139,14 @@ public class CRUD_Account {
         }
         return id;
     }
+
+    public static void userEditAccount(String password, int user) throws SQLException {
+        String edit = "update account set password = ? where id_account = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(edit);
+        preparedStatement.setString(1, password);
+        preparedStatement.setInt(2, user);
+        preparedStatement.execute();
+    }
 }
 
 

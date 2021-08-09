@@ -1,6 +1,7 @@
 package models;
 
 public class UserBill {
+    private int id_user;
     private int id_detail_bill;
     private int id_sp;
     private String img;

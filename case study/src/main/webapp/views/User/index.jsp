@@ -70,7 +70,7 @@
                                     </li>
                                     <li class="drop"><a href="/user?action=home">Home</a></li>
 
-                                    <li class="drop"><a href="/views/User/product-grid.jsp">Product</a>
+                                    <li class="drop"><a href="/product?action=showProduct">Product</a>
                                     </li>
                                     </li>
                                     <li class="drop"><a href="https://www.facebook.com/Ducdv.dev.null">Pages</a>
@@ -79,6 +79,7 @@
                                         <a href="#">Account</a>
                                         <ul class="dropdown">
                                             <li><a href="/user?action=showCart&user=${username}">Giỏ hàng</a></li>
+                                            <li><a href="/views/User/checkout.jsp">Đổi mật khẩu</a></li>
                                             <li><a href="index.jsp">log out</a></li>
                                         </ul>
                                     </li>

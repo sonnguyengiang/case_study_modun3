@@ -1,9 +1,15 @@
 package Controller;
 
+import Services.BillServices;
 import Services.LoginServices;
 import Services.ProductServices;
 import Services.DetailBillServices;
+import dao.CRUD_Bill;
 import models.Account;
+import models.Bill;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,12 +19,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
 
 @WebServlet(urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
     LoginServices loginServices = new LoginServices();
-    ProductServices  productServices = new ProductServices();
-    DetailBillServices detailBillServices = new DetailBillServices();
+    BillServices billServices = new BillServices();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,7 +47,11 @@ public class LoginServlet extends HttpServlet {
                     String password = req.getParameter("password");
                     String checkString = loginServices.Login(username, password);
                     int id_user = loginServices.getIdUser(username);
+                    String date = String.valueOf((LocalDate.now()));
+                    billServices.createBill(id_user, date);
+                    int id_bill = billServices.getIdBill();
                     HttpSession session = req.getSession();
+                    session.setAttribute("id_bill", id_bill);
                     session.setAttribute("username", username);
                     session.setAttribute("iduser", id_user);
                     switch (checkString) {

@@ -1,7 +1,9 @@
 package Controller;
 
+import Services.BillServices;
 import Services.ProductServices;
 import Services.DetailBillServices;
+import dao.CRUD_Account;
 import dao.CRUD_Detail_Bill;
 import dao.CRUD_test;
 import models.Detail_Bill;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 public class UserServlet extends HttpServlet {
     ProductServices productServices = new ProductServices();
     DetailBillServices detailBillServices = new DetailBillServices();
+    BillServices billServices = new BillServices();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -65,10 +68,24 @@ public class UserServlet extends HttpServlet {
                 resp.sendRedirect("/user?action=home");
                 break;
             case "delete":
-                int id_detail_bill = Integer.parseInt(req.getParameter("id_detail_bill"));
-                int index_delete = Integer.parseInt(req.getParameter("index"));
-                detailBillServices.delete(index_delete, id_detail_bill);
-                resp.sendRedirect("/user?action=showCart");
+                try {
+                    int id_detail_bill = Integer.parseInt(req.getParameter("id_detail_bill"));
+                    int index_delete = Integer.parseInt(req.getParameter("index"));
+                    detailBillServices.delete(index_delete, id_detail_bill);
+                    resp.sendRedirect("/user?action=showCart");
+                    break;
+                } catch (Exception e) {
+                    int id_detail_bill = Integer.parseInt(req.getParameter("id_detail_bill"));
+                    int index_delete = Integer.parseInt(req.getParameter("index"));
+                    detailBillServices.delete(index_delete, id_detail_bill);
+                    resp.sendRedirect("/user?action=showCart");
+                    break;
+                }
+            case "createBill":
+                int price_bill = Integer.parseInt(req.getParameter("price_bill"));
+                int id_bill = Integer.parseInt(req.getParameter("id_bill"));
+                billServices.updateBill(id_bill, price_bill);
+                resp.sendRedirect("/user?action=home");
                 break;
         }
     }
@@ -85,14 +102,29 @@ public class UserServlet extends HttpServlet {
         switch (action) {
             case "addProduct":
                 int id_user = Integer.parseInt(req.getParameter("id_user"));
+                int id_bill = billServices.getIdBill();
+                System.out.println(id_bill);
                 int id_sp = Integer.parseInt(req.getParameter("index"));
                 int soluongmua = Integer.parseInt(req.getParameter("number"));
                 int price = Integer.parseInt(req.getParameter("price"));
                 int count_price = price * soluongmua;
-                Detail_Bill detail_bill = new Detail_Bill(id_user ,id_sp, count_price, soluongmua);
+                Detail_Bill detail_bill = new Detail_Bill(id_user, id_bill, id_sp, count_price, soluongmua);
                 detailBillServices.createTemp(detail_bill);
                 resp.sendRedirect("/user?action=showCart");
                 break;
+            case "changePassword":
+                int id_user1 = Integer.parseInt(req.getParameter("id_user"));
+                String password = req.getParameter("password");
+                try {
+                    CRUD_Account.userEditAccount(password, id_user1);
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+                req.setAttribute("changepass", true);
+                dispatcher = req.getRequestDispatcher("/views/User/checkout.jsp");
+                dispatcher.forward(req, resp);
+                break;
         }
+
     }
 }

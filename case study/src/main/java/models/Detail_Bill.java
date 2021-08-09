@@ -2,19 +2,15 @@ package models;
 
 public class Detail_Bill {
     private int id;
+    private int id_bill;
     private int id_user;
     private int id_sp;
     private int soluongmua;
     private int tong_gia;
 
-    public Detail_Bill(int id, int id_user, int id_sp, int soluongmua, int tong_gia) {
-        this.id = id;
-        this.id_user = id_user;
-        this.id_sp = id_sp;
-        this.soluongmua = soluongmua;
-        this.tong_gia = tong_gia;
-    }
-    public Detail_Bill(int id_user, int id_sp, int tong_gia, int soluongmua) {
+
+    public Detail_Bill(int id_user,int id_bill, int id_sp, int tong_gia, int soluongmua) {
+        this.id_bill = id_bill;
         this.id_user = id_user;
         this.id_sp = id_sp;
         this.soluongmua = soluongmua;
@@ -68,5 +64,13 @@ public class Detail_Bill {
 
     public void setId_user(int id_user) {
         this.id_user = id_user;
+    }
+
+    public int getId_bill() {
+        return id_bill;
+    }
+
+    public void setId_bill(int id_bill) {
+        this.id_bill = id_bill;
     }
 }

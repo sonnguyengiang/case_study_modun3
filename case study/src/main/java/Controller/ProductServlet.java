@@ -47,6 +47,12 @@ public class ProductServlet extends HttpServlet {
                 productServices.delete(index_delete);
                 resp.sendRedirect("/product?action=show");
                 break;
+            case "showProduct":
+                productServices.updateList();
+                req.setAttribute("productList", productServices.list);
+                dispatcher = req.getRequestDispatcher("/views/User/product-grid.jsp");
+                dispatcher.forward(req, resp);
+                break;
         }
     }
 

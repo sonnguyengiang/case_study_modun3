@@ -2,7 +2,9 @@ package Controller;
 
 import Services.AccountServices;
 import dao.CRUD_Account;
+import dao.CRUD_Bill;
 import models.Account;
+import models.Bill;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,6 +54,17 @@ public class AdminServlet extends HttpServlet {
                 }
                 req.setAttribute("AccountList", list);
                 dispatcher = req.getRequestDispatcher("/views/Admin/ShowAccount.jsp");
+                dispatcher.forward(req, resp);
+                break;
+            case "showBill":
+                ArrayList<Bill> list1 = null;
+                try {
+                    list1 = CRUD_Bill.getBill();
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+                req.setAttribute("billList", list1);
+                dispatcher = req.getRequestDispatcher("/views/Admin/ShowBill.jsp");
                 dispatcher.forward(req, resp);
                 break;
             default:

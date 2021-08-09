@@ -41,7 +41,7 @@
                     </li>
                     <li><a href="#">tài chính</a>
                         <ul>
-                            <li><a href="#">Hiện thị doanh</a></li>
+                            <li><a href="/admin?action=showBill">Hiện thị các hóa đơn</a></li>
                         </ul>
                     </li>
                     <li>

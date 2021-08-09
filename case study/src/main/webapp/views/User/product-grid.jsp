@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
@@ -15,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="/views/User/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 
@@ -57,22 +58,24 @@
                     <div class="menumenu__container clearfix">
                         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
                             <div class="logo">
-                                <a href="index.html"><img src="images/logo/4.png" alt="logo images"></a>
+                                <a href="/user?action=home"><img src="https://i.imgur.com/KwFhYNO.png" alt="logo images"></a>
                             </div>
                         </div>
                         <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
                             <nav class="main__menu__nav hidden-xs hidden-sm">
                                 <ul class="main__menu">
-                                    <li class="drop"><a href="index.html">Home</a></li>
-                                    <li class="drop"><a href="#">Product</a>
+                                    <li class="drop"><a>${username}</a></li>
+                                    <li class="drop"><a href="/user?action=home">Home</a></li>
+                                    <li class="drop"><a href="#">Product</a></li>
+                                    <li class="drop"><a href="https://www.facebook.com/Ducdv.dev.null">Pages</a></li>
+                                    <li class="drop">
+                                        <a href="#">Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="product-grid.html">For man</a></li>
-                                            <li><a href="product-details.html">For woman</a></li>
+                                            <li><a href="/user?action=showCart&user=${username}">Giỏ hàng</a></li>
+                                            <li><a href="/views/User/checkout.jsp">Đổi mật khẩu</a></li>
+                                            <li><a href="index.jsp">log out</a></li>
                                         </ul>
                                     </li>
-                                    <li class="drop"><a href="https://www.facebook.com/Ducdv.dev.null">Pages</a>
-                                    </li>
-                                    <li><a href="contact.html">contact</a></li>
                                 </ul>
                             </nav>
 
@@ -195,16 +198,16 @@
     </div>
     <!-- End Offset Wrapper -->
     <!-- Start Bradcaump area -->
-    <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.png) no-repeat scroll center center / cover ;">
+    <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(/views/User/images/bg/4.png) no-repeat scroll center center / cover ;">
         <div class="ht__bradcaump__wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
                             <nav class="bradcaump-inner">
-                                <a class="breadcrumb-item" href="index.html">Home</a>
+                                <a class="breadcrumb-item" href="index.html" style="color: #ffb0e0">Home</a>
                                 <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                <span class="breadcrumb-item active">Products</span>
+                                <span class="breadcrumb-item active" style="color: #ffb0e0">Products</span>
                             </nav>
                         </div>
                     </div>
@@ -248,434 +251,63 @@
                         <div class="row">
                             <div class="shop__grid__view__wrap">
                                 <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/1.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
 
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+                                    <c:forEach items="${productList}" var="product" varStatus="loop">
+                                        <!-- Start Single Product -->
+                                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                                            <div class="category">
+                                                <div class="ht__cat__thumb">
+                                                    <a href="/user?action=viewProduct&index=${loop.index}">
+                                                        <img src="${product.img}" alt="product images" width="380px" height="290px">
+                                                    </a>
+                                                </div>
+                                                <div class="fr__hover__info">
+                                                    <ul class="product__action">
+                                                        <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
 
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Largest Water Pot</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
+                                                        <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
+
+                                                        <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="fr__product__inner">
+                                                    <h4><a href="product-details.html">${product.name}</a></h4>
+                                                    <ul class="fr__pro__prize">
+                                                        <li>${product.price}.VNĐ</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/2.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
+                                        <!-- End Single Product -->
+                                    </c:forEach>
 
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Chair collection</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/3.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">dummy Product name</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/4.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Largest Water Pot</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/5.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Largest Water Pot</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/6.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Special Wood Basket</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/7.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Largest Water Pot</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/8.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">donec ac tempus nrb</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/9.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">nemo enim ipsam</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/10.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">dummy Product name</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/11.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Chair collection</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                    <!-- Start Single Product -->
-                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="product-details.html">
-                                                    <img src="images/product/1.jpg" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                                    <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="product-details.html">Largest Water Pot</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li class="old__prize">$30.3</li>
-                                                    <li>$25.9</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Product -->
                                 </div>
                                 <div role="tabpanel" id="list-view" class="single-grid-view tab-pane fade clearfix">
                                     <div class="col-xs-12">
                                         <div class="ht__list__wrap">
+                                            <c:forEach items="${productList}" var="product" varStatus="loop">
                                             <!-- Start List Product -->
                                             <div class="ht__list__product">
                                                 <div class="ht__list__thumb">
-                                                    <a href="product-details.html"><img src="images/product-2/pro-1/1.jpg" alt="product images"></a>
+                                                    <a href="/user?action=viewProduct&index=${loop.index}"><img src="${product.img}" alt="product images"></a>
                                                 </div>
                                                 <div class="htc__list__details">
-                                                    <h2><a href="product-details.html">Product Title Here </a></h2>
+                                                    <h2><a href="product-details.html">${product.name}</a></h2>
                                                     <ul  class="pro__prize">
-                                                        <li class="old__prize">$82.5</li>
-                                                        <li>$75.2</li>
+                                                        <li>${product.price}.VNĐ</li>
                                                     </ul>
                                                     <ul class="rating">
                                                         <li><i class="icon-star icons"></i></li>
                                                         <li><i class="icon-star icons"></i></li>
                                                         <li><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
+                                                        <li><i class="icon-star icons"></i></li>
                                                         <li class="old"><i class="icon-star icons"></i></li>
                                                     </ul>
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisLorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqul Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                                    <div class="fr__list__btn">
-                                                        <a class="fr__btn" href="cart.html">Add To Cart</a>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- End List Product -->
-                                            <!-- Start List Product -->
-                                            <div class="ht__list__product">
-                                                <div class="ht__list__thumb">
-                                                    <a href="product-details.html"><img src="images/product-2/pro-1/2.jpg" alt="product images"></a>
-                                                </div>
-                                                <div class="htc__list__details">
-                                                    <h2><a href="product-details.html">Product Title Here </a></h2>
-                                                    <ul  class="pro__prize">
-                                                        <li class="old__prize">$82.5</li>
-                                                        <li>$75.2</li>
-                                                    </ul>
-                                                    <ul class="rating">
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisLorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqul Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                                    <div class="fr__list__btn">
-                                                        <a class="fr__btn" href="cart.html">Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End List Product -->
-                                            <!-- Start List Product -->
-                                            <div class="ht__list__product">
-                                                <div class="ht__list__thumb">
-                                                    <a href="product-details.html"><img src="images/product-2/pro-1/3.jpg" alt="product images"></a>
-                                                </div>
-                                                <div class="htc__list__details">
-                                                    <h2><a href="product-details.html">Product Title Here </a></h2>
-                                                    <ul  class="pro__prize">
-                                                        <li class="old__prize">$82.5</li>
-                                                        <li>$75.2</li>
-                                                    </ul>
-                                                    <ul class="rating">
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisLorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqul Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                                    <div class="fr__list__btn">
-                                                        <a class="fr__btn" href="cart.html">Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End List Product -->
-                                            <!-- Start List Product -->
-                                            <div class="ht__list__product">
-                                                <div class="ht__list__thumb">
-                                                    <a href="product-details.html"><img src="images/product-2/pro-1/4.jpg" alt="product images"></a>
-                                                </div>
-                                                <div class="htc__list__details">
-                                                    <h2><a href="product-details.html">Product Title Here </a></h2>
-                                                    <ul  class="pro__prize">
-                                                        <li class="old__prize">$82.5</li>
-                                                        <li>$75.2</li>
-                                                    </ul>
-                                                    <ul class="rating">
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
-                                                        <li class="old"><i class="icon-star icons"></i></li>
-                                                    </ul>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisLorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqul Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                                    <div class="fr__list__btn">
-                                                        <a class="fr__btn" href="cart.html">Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- End List Product -->
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </div>

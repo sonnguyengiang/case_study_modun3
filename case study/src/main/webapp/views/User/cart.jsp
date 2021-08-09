@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="models.UserBill" %><%--
   Created by IntelliJ IDEA.
   User: Admin
   Date: 06/08/2021
@@ -68,17 +70,13 @@
                                 <ul class="main__menu">
                                     <li class="drop"><a>Xin Chao ${username}</a></li>
                                     <li class="drop"><a href="/user?action=home">Home</a></li>
-                                    <li class="drop"><a href="#">Product</a>
-                                        <ul class="dropdown">
-                                            <li><a href="product-grid.html">Product Grid</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="drop"><a href="blog.html">blog</a></li>
-                                    <li class="drop"><a href="#">Pages</a></li>
+                                    <li class="drop"><a href="/views/User/product-grid.jsp">Product</a></li>
+                                    <li class="drop"><a href="#">blog</a></li>
                                     <li class="drop">
                                         <a href="#">Account</a>
                                         <ul class="dropdown">
                                             <li><a href="/user?action=showCart&user=${username}">Giỏ hàng</a></li>
+                                            <li><a href="/views/User/checkout.jsp">Đổi mật khẩu</a></li>
                                             <li><a href="index.jsp">log out</a></li>
                                         </ul>
                                     </li>
@@ -197,9 +195,9 @@
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
                             <nav class="bradcaump-inner">
-                                <a class="breadcrumb-item" href="/user?action=home">Home</a>
+                                <a class="breadcrumb-item" href="/user?action=home" style="color: #ffb0e0">Home</a>
                                 <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                <span class="breadcrumb-item active">shopping cart</span>
+                                <span class="breadcrumb-item active" style="color: #ffb0e0">shopping cart</span>
                             </nav>
                         </div>
                     </div>
@@ -229,15 +227,16 @@
                                 <tbody>
                                 <c:forEach items="${Cart}" var="cart" varStatus="loop">
                                     <tr>
-                                        <td class="product-thumbnail"><a href="#"><img src="${cart.img}"
-                                                                                       alt="product img"/></a></td>
+                                        <td class="product-thumbnail"><a href="#"><img src="${cart.img}" alt="product img"/></a></td>
                                         <td class="product-name"><a href="#">${cart.name}</a></td>
                                         <td class="product-price"><span name="price" class="amount">${cart.price}</span>
                                         </td>
-                                        <td class="product-quantity"><input name="number" type="number" value="1"/></td>
+                                        <td class="product-quantity">${cart.soluongmua}</td>
                                         <td class="product-subtotal">${cart.tonggia}.VNĐ</td>
                                         </td>
-                                        <td class="product-remove"><a href="/user?action=delete&id_detail_bill=${cart.id_detail_bill}&index=${loop.index}"><i class="icon-trash icons"></i></a></td>
+                                        <td class="product-remove"><a
+                                                href="/user?action=delete&id_detail_bill=${cart.id_detail_bill}&index=${loop.index}"><i
+                                                class="icon-trash icons"></i></a></td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -273,23 +272,32 @@
                                     <h6>cart total</h6>
                                     <div class="cart__desk__list">
                                         <ul class="cart__desc">
-                                            <c:forEach items="${Cart}" var="price" >
-                                                <li>${price.name}</li>
+                                            <c:forEach items="${Cart}" var="price">
+                                                <li>${price.name} x ${price.soluongmua}</li>
                                             </c:forEach>
                                         </ul>
                                         <ul class="cart__price">
-                                            <c:forEach items="${Cart}" var="price" >
-                                                <li>${price.price}</li>
+                                            <c:forEach items="${Cart}" var="price">
+                                                <li id="price">1x-${price.price}</li>
                                             </c:forEach>
                                         </ul>
                                     </div>
                                     <div class="cart__total">
                                         <span>order total</span>
-                                        <span>$918.00</span>
+                                        <%
+                                            ArrayList<UserBill> list = (ArrayList<UserBill>) request.getAttribute("Cart");
+                                            int count_price = 0;
+                                            for (int i = 0; i < list.size(); i++) {
+                                                count_price += (list.get(i).getPrice() * list.get(i).getSoluongmua());
+                                            }
+                                            session.setAttribute("count_price", count_price);
+                                            System.out.println(count_price);
+                                            session.setAttribute("count_price_bill", count_price);
+                                        %>
+                                        <span><%=count_price%></span>
                                     </div>
                                     <ul class="payment__btn">
-                                        <li class="active"><a href="#">payment</a></li>
-                                        <li><a href="/user?action=home">continue shopping</a></li>
+                                        <li class="active"><a href="/user?action=createBill&price_bill=${count_price_bill}&id_bill=${id_bill}">payment</a></li>
                                     </ul>
                                 </div>
                             </div>

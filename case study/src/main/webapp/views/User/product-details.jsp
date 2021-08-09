@@ -43,7 +43,8 @@
 
 <body>
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Body main wrapper start -->
@@ -57,12 +58,15 @@
                     <div class="menumenu__container clearfix">
                         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
                             <div class="logo">
-                                <a href="index.html"><img src="https://i.imgur.com/KwFhYNO.png" alt="logo images" alt="logo images"></a>
+                                <a href="index.html"><img src="https://i.imgur.com/KwFhYNO.png" alt="logo images"
+                                                          alt="logo images"></a>
                             </div>
                         </div>
                         <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
                             <nav class="main__menu__nav hidden-xs hidden-sm">
                                 <ul class="main__menu">
+                                    <li class="drop"><a>xin chào ${username}</a>
+                                    </li>
                                     <li class="drop"><a href="/user?action=home">Home</a></li>
 
                                     <li class="drop"><a href="/views/User/product-grid.jsp">Product</a>
@@ -73,8 +77,11 @@
                                     <li class="drop">
                                         <a href="#">Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.jsp">log out</a></li>
-                                            <li><a href="product-details.html">For woman</a></li>
+                                            <ul class="dropdown">
+                                                <li><a href="/user?action=showCart&user=${username}">Giỏ hàng</a></li>
+                                                <li><a href="/views/User/checkout.jsp">Đổi mật khẩu</a></li>
+                                                <li><a href="index.jsp">log out</a></li>
+                                            </ul>
                                         </ul>
                                     </li>
                                 </ul>
@@ -126,9 +133,9 @@
     <div class="offset__wrapper">
         <!-- Start Search Popap -->
         <div class="search__area">
-            <div class="container" >
-                <div class="row" >
-                    <div class="col-md-12" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="search__inner">
                             <form action="#" method="get">
                                 <input placeholder="Search here... " type="text">
@@ -195,7 +202,8 @@
     </div>
     <!-- End Offset Wrapper -->
     <!-- Start Bradcaump area -->
-    <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.png) no-repeat scroll center center / cover ;">
+    <div class="ht__bradcaump__area"
+         style="background: rgba(0, 0, 0, 0) url(/img/background.jpg) no-repeat scroll center center / cover ;">
         <div class="ht__bradcaump__wrap">
             <div class="container">
                 <div class="row">
@@ -239,7 +247,7 @@
                     <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
                         <div class="ht__product__dtl">
                             <h2>${productListView.name}</h2>
-                            <ul  class="pro__prize">
+                            <ul class="pro__prize">
                                 <li>Giá: ${productListView.price}.VNĐ</li>
                             </ul>
                             <div class="ht__pro__desc">
@@ -249,7 +257,8 @@
                                 <div class="sin__desc align--left">
                                     <p><span>color:</span></p>
                                     <ul class="pro__color">
-                                        <li class="${productListView.color}"><a href="#">${productListView.color}</a></li>
+                                        <li class="${productListView.color}"><a href="#">${productListView.color}</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="sin__desc align--left">
@@ -259,20 +268,21 @@
                                     </ul>
                                 </div>
                                 <div class="sin__desc align--left">
-                                    <p><span>Số lượng: </span></p>
+                                    <p><span>Số lượng:</span></p>
                                     <ul class="pro__cat__list">
                                         <li><a href="#">${productListView.soluong}</a></li>
                                     </ul>
                                 </div>
-                                <div class="sin__desc align--left">
-                                    <p><span>số lượng</span></p>
-                                    <form action="/user?action=addProduct&index=${productListView.id}&price=${productListView.price}&id_user=${iduser}" method="post">
+                                <form action="/user?action=addProduct&index=${productListView.id}&price=${productListView.price}&id_user=${iduser}"
+                                      method="post">
+                                    <div class="sin__desc align--left">
+                                        <p><span>số lượng</span></p>
                                         <input type="number" name="number">
                                         <div class="pro__more__btn">
                                             <button type="submit">thêm vào giỏ hàng</button>
                                         </div>
-                                    </form>
-                                </div><br>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -289,9 +299,12 @@
                 <div class="col-xs-12">
                     <!-- Start List And Grid View -->
                     <ul class="pro__details__tab" role="tablist">
-                        <li role="presentation" class="description active"><a href="#description" role="tab" data-toggle="tab">description</a></li>
-                        <li role="presentation" class="review"><a href="#review" role="tab" data-toggle="tab">review</a></li>
-                        <li role="presentation" class="shipping"><a href="#shipping" role="tab" data-toggle="tab">shipping</a></li>
+                        <li role="presentation" class="description active"><a href="#description" role="tab"
+                                                                              data-toggle="tab">description</a></li>
+                        <li role="presentation" class="review"><a href="#review" role="tab" data-toggle="tab">review</a>
+                        </li>
+                        <li role="presentation" class="shipping"><a href="#shipping" role="tab" data-toggle="tab">shipping</a>
+                        </li>
                     </ul>
                     <!-- End List And Grid View -->
                 </div>
@@ -302,36 +315,113 @@
                         <!-- Start Single Content -->
                         <div role="tabpanel" id="description" class="pro__single__content tab-pane fade in active">
                             <div class="pro__tab__content__inner">
-                                <p>Formfitting clothing is all about a sweet spot. That elusive place where an item is tight but not clingy, sexy but not cloying, cool but not over the top. Alexandra Alvarez’s label, Alix, hits that mark with its range of comfortable, minimal, and neutral-hued bodysuits.</p>
+                                <p>Formfitting clothing is all about a sweet spot. That elusive place where an item is
+                                    tight but not clingy, sexy but not cloying, cool but not over the top. Alexandra
+                                    Alvarez’s label, Alix, hits that mark with its range of comfortable, minimal, and
+                                    neutral-hued bodysuits.</p>
                                 <h4 class="ht__pro__title">Description</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                                    at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+                                    nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+                                    possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit
+                                    eorum claritatem</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum
+                                    iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                                    dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
+                                    qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+                                    facilisi.</p>
                                 <h4 class="ht__pro__title">Standard Featured</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                                    at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+                                    nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+                                    possim assum. Typi non habent claritatem insitam; est usus legentis in</p>
                             </div>
                         </div>
                         <!-- End Single Content -->
                         <!-- Start Single Content -->
                         <div role="tabpanel" id="review" class="pro__single__content tab-pane fade">
                             <div class="pro__tab__content__inner">
-                                <p>Formfitting clothing is all about a sweet spot. That elusive place where an item is tight but not clingy, sexy but not cloying, cool but not over the top. Alexandra Alvarez’s label, Alix, hits that mark with its range of comfortable, minimal, and neutral-hued bodysuits.</p>
+                                <p>Formfitting clothing is all about a sweet spot. That elusive place where an item is
+                                    tight but not clingy, sexy but not cloying, cool but not over the top. Alexandra
+                                    Alvarez’s label, Alix, hits that mark with its range of comfortable, minimal, and
+                                    neutral-hued bodysuits.</p>
                                 <h4 class="ht__pro__title">Description</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                                    at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+                                    nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+                                    possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit
+                                    eorum claritatem</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum
+                                    iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                                    dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
+                                    qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+                                    facilisi.</p>
                                 <h4 class="ht__pro__title">Standard Featured</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                                    at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+                                    nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+                                    possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit
+                                    eorum claritatem</p>
                             </div>
                         </div>
                         <!-- End Single Content -->
                         <!-- Start Single Content -->
                         <div role="tabpanel" id="shipping" class="pro__single__content tab-pane fade">
                             <div class="pro__tab__content__inner">
-                                <p>Formfitting clothing is all about a sweet spot. That elusive place where an item is tight but not clingy, sexy but not cloying, cool but not over the top. Alexandra Alvarez’s label, Alix, hits that mark with its range of comfortable, minimal, and neutral-hued bodysuits.</p>
+                                <p>Formfitting clothing is all about a sweet spot. That elusive place where an item is
+                                    tight but not clingy, sexy but not cloying, cool but not over the top. Alexandra
+                                    Alvarez’s label, Alix, hits that mark with its range of comfortable, minimal, and
+                                    neutral-hued bodysuits.</p>
                                 <h4 class="ht__pro__title">Description</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem</p>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                                    at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+                                    nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+                                    possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit
+                                    eorum claritatem</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum
+                                    iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                                    dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
+                                    qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+                                    facilisi.</p>
                                 <h4 class="ht__pro__title">Standard Featured</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                    euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+                                    minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                                    aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+                                    vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                                    at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                    delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
+                                    nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+                                    possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit
+                                    eorum claritatem</p>
                             </div>
                         </div>
                         <!-- End Single Content -->
